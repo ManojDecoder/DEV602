@@ -1,0 +1,33 @@
+---
+applications:
+- name: DEV602
+  path: web
+  port: 49013
+  env:
+    destinations: >
+      [
+        {"name":"nodejs", 
+         "url":"https://mo-6863688bc.mo.sap.corp:49012", 
+         "forwardAuthToken": true},
+        {"name":"ui5", 
+         "url":"http://mo-6863688bc.mo.sap.corp:8000/sap/ui5/1/"}        
+      ]  
+  services:
+    - dev602-uaa   
+
+- name: DEV602-db
+  path: db
+  memory: 128M
+  no-route: true  
+  services:
+    - dev602-hdi-container  
+
+- name: DEV602-js
+  path: js
+  port: 49012
+  services:
+    - dev602-hdi-container
+    - dev602-uaa       
+  env:
+    HANA_SERVICE_NAME: dev602-hdi-container
+    UAA_SERVICE_NAME: dev602-uaa  

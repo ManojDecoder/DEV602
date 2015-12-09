@@ -1,0 +1,18 @@
+{
+  "name": "dev602-js",
+  "version": "1.0.0",
+  "description": "DEV602 Node.js XSJS compatibility",
+  "dependencies": {
+    "sap-xsjs": "1.2.4",
+    "sap-xsenv": "1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node xsjs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.wdf.sap.corp/I809764/DEV602"
+  },
+  "author": "Thomas Jung"
+}

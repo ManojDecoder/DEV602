@@ -1,0 +1,49 @@
+_schema-version: "2.0.0"
+ID: com.sap.dev602
+version: 0.1.0
+
+modules:
+  - name: DEV602
+    type: javascript.nodejs
+    path: web/
+    requires:
+      - name: dev602-uaa
+      - name: nodejs
+        group: destinations
+        properties:
+          name: nodejs
+          url: ~{url}
+          forwardAuthToken: true
+      - name: ui5
+        group: destinations
+        properties:
+          name: ui5
+          url: "http://localhost:8000/sap/ui5/1/"
+          forwardAuthToken: false          
+    
+  - name: DEV602-js
+    type: javascript.nodejs
+    path: js/
+    provides: 
+      - name: nodejs
+        properties:
+          url: "${default-url}"
+    requires:
+      - name: dev602-uaa
+      - name: dev602-db
+      - name: dev602-hdi-container
+
+  - name: DEV602-db
+    type: com.sap.xs.hdi
+    path: db/
+    requires:
+      - name: dev602-hdi-container
+
+resources:
+  - name: dev602-hdi-container
+    type: com.sap.xs.hdi-container
+
+  - name: dev602-uaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      config_path: xs-security.json
