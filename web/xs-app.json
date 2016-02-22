@@ -1,20 +1,16 @@
 {
-  "welcomeFile": "index.html",
-  "routes": [
-	{
-      "source": "/sap/ui5/1(.*)",
-      "target": "$1",
-      "destination": "ui5"
-    },    
-    {
-      "source": "(.*)(.xsjs)",
-      "destination": "nodejs",
-      "scope": "DEV602.Display"
-    },
-    {
-      "source": "(.*)(.xsodata)",
-      "destination": "nodejs",
-      "scope": "DEV602.Create"
-    }    
-  ]
+	"welcomeFile": "index.html",
+	"authenticationMethod":"route",
+	"routes": [ {
+		"source": "(.*)(.xsjs)",
+		"destination": "nodejs",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa",		
+		"scope": "DEV602.Display"
+	}, {
+		"source": "(.*)(.xsodata)",
+		"destination": "nodejs",
+		"authenticationType": "xsuaa",		
+		"scope": "DEV602.Create"
+	}]
 }

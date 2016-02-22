@@ -1,18 +1,2 @@
-{
-  "name": "dev602-web",
-  "version": "1.0.0",
-  "description": "DEV602 App Router entry point and static web content",
-  "dependencies": {
-    "approuter": "1.1.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/approuter/approuter.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.wdf.sap.corp/I809764/DEV602"
-  },
-  "author": "Thomas Jung"
-}
+{"name":"dev602-web","version":"1.0.0","description":"DEV602 App Router entry point and static web content",
+"dependencies":{"approuter":"1.3.5"},"devDependencies":{},"scripts":{"test":"echo \"Error: no test specified\" && exit 1","start":"node node_modules/approuter/approuter.js"},"repository":{"type":"git","url":"https://github.wdf.sap.corp/I809764/DEV602"},"author":"Thomas Jung"}
