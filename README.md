@@ -1,7 +1,7 @@
 DEV602
 ======
 
-SAP TechEd 2015 DEV602 First XS Advanced Project
+SAP TechEd 2015 DEV602 First XS Advanced Project Updated for SAP Web IDE for SAP HANA
 
 EXERCISE 1 – HELLO WORLD
 Objective
