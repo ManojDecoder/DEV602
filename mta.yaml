@@ -1,0 +1,43 @@
+_schema-version: 2.0.0
+ID: com.sap.dev602
+version: 1.0.1
+
+modules:
+  - name: dev602
+    type: html5
+    path: web
+    requires:
+      - name: dev602-uaa
+      - name: nodejs
+        group: destinations
+        properties:
+          name: nodejs
+          url: ~{url}
+          forwardAuthToken: true
+
+  - name: dev602-js
+    type: nodejs
+    path: js
+    provides: 
+      - name: nodejs
+        properties:
+          url: "${default-url}"
+    requires:
+      - name: dev602-uaa
+      - name: dev602-db
+      - name: hdi-container
+
+  - name: dev602-db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi-container
+
+resources:
+  - name: hdi-container
+    type: com.sap.xs.hdi-container
+
+  - name: dev602-uaa
+    type: com.sap.xs.uaa
+    parameters:
+      config_path: ./xs-security.json
