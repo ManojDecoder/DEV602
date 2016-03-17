@@ -1,9 +1,7 @@
 sap.ui.jsfragment("odataView.MTableItem", {
 	
     createContent: function(oController) { 
-    	
-    	
-    	 oTable = new sap.m.Table("tblPOItem",{
+     	 var oTable = new sap.m.Table("tblPOItem",{
     		        tableId: "tblPOItem", 
      		 		growingThreshold:5,
     		        growing:true});  

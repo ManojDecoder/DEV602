@@ -1,0 +1,4 @@
+service namespace "dev602.services" {
+  "dev602.data::MD.BusinessPartner"
+  as "BusinessPartners";
+}

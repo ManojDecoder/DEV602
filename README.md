@@ -1,7 +1,7 @@
 DEV602
 ======
 
-SAP TechEd 2015 DEV602 First XS Advanced Project Updated for SAP Web IDE for SAP HANA
+SAP TechEd 2015 DEV602 First XS Advanced Project
 
 EXERCISE 1 – HELLO WORLD
 Objective
@@ -31,3 +31,4 @@ Exercise Description
 2. XSJS Services
 3. XSJS Services which branch back into Node.js Modules
 4. XSODATA Services
+

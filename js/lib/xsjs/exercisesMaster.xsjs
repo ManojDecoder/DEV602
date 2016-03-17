@@ -1,4 +1,3 @@
-
 function fillSessionInfo(){
 	var body = '';
 	body = JSON.stringify({

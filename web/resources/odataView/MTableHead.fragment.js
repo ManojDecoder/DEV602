@@ -1,9 +1,7 @@
 sap.ui.jsfragment("odataView.MTableHead", {
 	
     createContent: function(oController) { 
-    	
-    	
-    	 oTable = new sap.m.Table("tblPOHeader",{
+    	 var oTable = new sap.m.Table("tblPOHeader",{
     		        tableId: "tblPOHeader", 
     		 		rowSelectionChange: oController.onRowSelect,    		        
     		 		growingThreshold:5,

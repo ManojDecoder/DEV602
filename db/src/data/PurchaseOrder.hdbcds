@@ -45,9 +45,9 @@ context PurchaseOrder {
         GROSSAMOUNT: AmountT;
         NETAMOUNT: AmountT;
         TAXAMOUNT: AmountT;
-	     	QUANTITY: QuantityT;
-		    QUANTITYUNIT: UnitT;
-		    DELIVERYDATE: SDate;
+	    QUANTITY: QuantityT;
+		QUANTITYUNIT: UnitT;
+		DELIVERYDATE: SDate;
       } technical configuration {
           column store;
       };

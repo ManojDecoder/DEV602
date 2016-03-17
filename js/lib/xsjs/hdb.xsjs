@@ -1,7 +1,4 @@
-		
 var conn = $.hdb.getConnection();
-
-//var query = 'SELECT * FROM "dev602.data::PurchaseOrder.ItemView"'; 
 var query = 'SELECT FROM dev602.data::PurchaseOrder.Item { ' +
 	        ' PURCHASEORDERID as "PurchaseOrderItemId", ' +
             ' PURCHASEORDERITEM as "ItemPos", ' +

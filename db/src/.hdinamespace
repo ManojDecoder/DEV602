@@ -1,4 +1,5 @@
 {
-    "name":      "dev602",
+    "name":    "dev602",
+    "cascade":   false,
     "subfolder": "append"
 }

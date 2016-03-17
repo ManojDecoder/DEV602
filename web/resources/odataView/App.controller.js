@@ -26,7 +26,7 @@ sap.ui.controller("odataView.App", {
 		  var mEntity2 = sap.ui.getCore().getModel().getProperty("/mEntity2");		  
 		  
 	   	  var oModel = new sap.ui.model.odata.ODataModel(mPath, true);
-	   	  oModel.attachEvent("requestFailed",oDataFailed)
+	   	  oModel.attachEvent("requestFailed",oDataFailed);
 	   	  
 	   	  var oMeta = oModel.getServiceMetadata();
           var oControl;

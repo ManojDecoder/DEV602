@@ -1,16 +1,21 @@
 {
 	"welcomeFile": "index.html",
-	"authenticationMethod":"route",
-	"routes": [ {
+	"authenticationMethod": "route",
+	"routes": [
+ 	{
+		"source": "/node/(.*)",
+		"destination": "nodejs",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, 	
+	{
 		"source": "(.*)(.xsjs)",
 		"destination": "nodejs",
 		"csrfProtection": false,
-		"authenticationType": "xsuaa",		
-		"scope": "DEV602.Display"
+		"authenticationType": "xsuaa"
 	}, {
 		"source": "(.*)(.xsodata)",
 		"destination": "nodejs",
-		"authenticationType": "xsuaa",		
-		"scope": "DEV602.Create"
+		"authenticationType": "xsuaa"
 	}]
 }

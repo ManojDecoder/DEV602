@@ -15,10 +15,13 @@ function hdbFlattenedTest(){
 function _selection(){
 	var connection = $.hdb.getConnection();
 
-	var getPOItems = connection.loadProcedure( 
-		"dev602.procedures::getPOItems");
+	var partnerRole = $.request.parameters.get("PartnerRole");
+	partnerRole = typeof partnerRole !== 'undefined' ? partnerRole : '1';
 
-	var results = getPOItems();
+	var getBpAddressesByRole = connection.loadProcedure( 
+		"dev602.procedures::get_bp_addresses_by_role");
+
+	var results = getBpAddressesByRole(partnerRole);
 	return results;
 }
 
