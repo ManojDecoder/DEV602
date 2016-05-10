@@ -1,12 +1,15 @@
+/*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0*/
+"use strict";
+
 /**  
 @function Outputs the Session user and Language as JSON in the Response body
 */
 function fillSessionInfo(){
-	var body = '';
+	var body = "";
 	body = JSON.stringify({
 		"session" : [{"UserName": $.session.getUsername(), "Language": $.session.language}] 
 	});
-	$.response.contentType = 'application/json'; 
+	$.response.contentType = "application/json"; 
 	$.response.setBody(body);
 	$.response.status = $.net.http.OK;
 }
@@ -17,17 +20,17 @@ function fillSessionInfo(){
 @returns {string} the same string as the input but now escaped
 */
 function escapeSpecialChars(input) {
-	if(typeof(input) != 'undefined' && input != null)
+	if(typeof (input) !== "undefined" && input !== null)
 	{	
 	return input
-    .replace(/[\\]/g, '\\\\')
-    .replace(/[\"]/g, '\\\"')
-    .replace(/[\/]/g, '\\/')
-    .replace(/[\b]/g, '\\b')
-    .replace(/[\f]/g, '\\f')
-    .replace(/[\n]/g, '\\n')
-    .replace(/[\r]/g, '\\r')
-    .replace(/[\t]/g, '\\t'); }
+    .replace(/[\\]/g, "\\\\")
+    .replace(/[\"]/g, "\\\"")
+    .replace(/[\/]/g, "\\/")
+    .replace(/[\b]/g, "\\b")
+    .replace(/[\f]/g, "\\f")
+    .replace(/[\n]/g, "\\n")
+    .replace(/[\r]/g, "\\r")
+    .replace(/[\t]/g, "\\t"); }
 	else{
 		
 		return "";
@@ -40,15 +43,15 @@ function escapeSpecialChars(input) {
 @returns {string} the same string as the input but now escaped
 */
 function escapeSpecialCharsText(input) {
-	if(typeof(input) != 'undefined' && input != null)
+	if(typeof (input) !== "undefined" && input != null)
 	{	
-	input.replace(/[\"]/g, '\"\"');
+	input.replace(/[\"]/g, "\"\"");
 	if(input.indexOf(",") >= 0 ||
 	   input.indexOf("\t") >= 0 ||
 	   input.indexOf(";") >= 0 ||
 	   input.indexOf("\n") >= 0 ||
-	   input.indexOf('"') >= 0 )
-	{input = '"'+input+'"';}
+	   input.indexOf("\"") >= 0 )
+	{input = "\""+input+"\"";}
 	
 	return input;
 	}
@@ -66,11 +69,11 @@ function escapeSpecialCharsText(input) {
 @returns {String} The text string with the contents of the record set
 */
 function recordSetToText(rs,bHeaders,delimiter){
-	bHeaders = typeof bHeaders !== 'undefined' ? bHeaders : true;
-	delimiter = typeof delimiter !== 'undefined' ? delimiter : '\t'; //Default to Tab Delimited
+	bHeaders = typeof bHeaders !== "undefined" ? bHeaders : true;
+	delimiter = typeof delimiter !== "undefined" ? delimiter : "\t"; //Default to Tab Delimited
 	
-	var outputString = '';
-	var value = '';
+	var outputString = "";
+	var value = "";
 	var meta = rs.getMetaData();
 	var colCount = meta.getColumnCount();
 	
@@ -79,7 +82,7 @@ function recordSetToText(rs,bHeaders,delimiter){
 		for (var i=1; i<=colCount; i++) {
 			outputString += escapeSpecialCharsText(meta.getColumnLabel(i)) + delimiter;			
 		}
-		outputString += '\n';  //Add New Line
+		outputString += "\n";  //Add New Line
 	}
 	while (rs.next()) {
 		for (var i=1; i<=colCount; i++) {
@@ -134,9 +137,9 @@ function recordSetToText(rs,bHeaders,delimiter){
 		          value += rs.getString(i);
 		     }
 			   outputString += escapeSpecialCharsText(value) + delimiter;
-			   value = '';
+			   value = "";
 		     }
-			outputString += '\n';  //Add New Line
+			outputString += "\n";  //Add New Line
 		}
 	
 	
@@ -150,7 +153,7 @@ function recordSetToText(rs,bHeaders,delimiter){
 @returns {object} JSON representation of the record set data
 */
 function recordSetToJSON(rs,rsName){
-	rsName = typeof rsName !== 'undefined' ? rsName : 'entries';
+	rsName = typeof rsName !== "undefined" ? rsName : "entries";
 	
 	var meta = rs.getMetaData();
 	var colCount = meta.getColumnCount();
@@ -159,16 +162,16 @@ function recordSetToJSON(rs,rsName){
 	var value="";
 	while (rs.next()) {
 	for (var i=1; i<=colCount; i++) {
-		value = '"'+meta.getColumnLabel(i)+'" : ';
+		value = "\""+meta.getColumnLabel(i)+"\" : ";
 	     switch(meta.getColumnType(i)) {
 	     case $.db.types.VARCHAR:
 	     case $.db.types.CHAR: 
-	          value += '"'+ escapeSpecialChars(rs.getString(i))+'"';
+	          value += "\""+ escapeSpecialChars(rs.getString(i))+"\"";
 	          break;
 	     case $.db.types.NVARCHAR:
 	     case $.db.types.NCHAR: 
 	     case $.db.types.SHORTTEXT:
-	          value += '"'+escapeSpecialChars(rs.getNString(i))+'"';
+	          value += "\""+escapeSpecialChars(rs.getNString(i))+"\"";
 	          break;
 	     case $.db.types.TINYINT:
 	     case $.db.types.SMALLINT:
@@ -187,47 +190,45 @@ function recordSetToJSON(rs,rsName){
 	          break;
 	     case $.db.types.NCLOB:
 	     case $.db.types.TEXT:
-	          value += '"'+ escapeSpecialChars(rs.getNClob(i))+'"';
+	          value += "\""+ escapeSpecialChars(rs.getNClob(i))+"\"";
 	          break;
 	     case $.db.types.CLOB:
-	          value += '"'+ escapeSpecialChars(rs.getClob(i))+'"';
+	          value += "\""+ escapeSpecialChars(rs.getClob(i))+"\"";
 	          break;	          
 	     case $.db.types.BLOB:
-	    	  value += '"'+ $.util.convert.encodeBase64(rs.getBlob(i))+'"';
+	    	  value += "\""+ $.util.convert.encodeBase64(rs.getBlob(i))+"\"";
 	          break;	          
 	     case $.db.types.DATE:
 	    	 var dateTemp = new Date();
 	    	 dateTemp.setDate(rs.getDate(i));
 	    	 var dateString = dateTemp.toJSON();
-	         value += '"'+dateString+'"';
+	         value += "\""+dateString+"\"";
 	          break;
 	     case $.db.types.TIME:
 	    	 var dateTemp = new Date();
 	    	 dateTemp.setDate(rs.getTime(i));
 	    	 var dateString = dateTemp.toJSON();
-	         value += '"'+dateString+'"';
+	         value += "\""+dateString+"\"";
 	          break;
          case $.db.types.TIMESTAMP:
              var dateTemp = new Date();
              dateTemp.setDate(rs.getTimestamp(i));
              var dateString = dateTemp.toJSON();
-             value += '"'+dateString+'"';
+             value += "\""+dateString+"\"";
              break;
 	     case $.db.types.SECONDDATE:
 	    	 var dateTemp = new Date();
 	    	 dateTemp.setDate(rs.getSeconddate(i));
 	    	 var dateString = dateTemp.toJSON();
-	         value += '"'+dateString+'"';
+	         value += "\""+dateString+"\"";
 	          break;
 	     default:
-	          value += '"'+escapeSpecialChars(rs.getString(i))+'"';
+	          value += "\""+escapeSpecialChars(rs.getString(i))+"\"";
 	     }
 	     values.push(value);
 	     }
-	   table.push('{'+values+'}');
+	   table.push("{"+values+"}");
 	}
-	return 	JSON.parse('{"'+ rsName +'" : [' + table	+']}');
+	return 	JSON.parse("{\""+ rsName +"\" : [" + table	+"]}");
 
 }
-
-

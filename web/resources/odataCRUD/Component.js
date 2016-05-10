@@ -1,6 +1,5 @@
+/*eslint no-undef: 0, no-unused-vars: 0*/
 jQuery.sap.declare("sap.shineNext.odataBasic.Component");
-
-
 sap.ui.core.UIComponent.extend("sap.shineNext.odataBasic.Component", {
 	init: function(){
 		jQuery.sap.require("sap.m.MessageBox");
@@ -37,4 +36,3 @@ sap.ui.core.UIComponent.extend("sap.shineNext.odataBasic.Component", {
 		return oView;
 	}
 });
-

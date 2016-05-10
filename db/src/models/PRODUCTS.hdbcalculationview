@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="dev602.models::PRODUCTS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
-<descriptions defaultDescription="PRODUCTS"/>
+<descriptions defaultDescription="Products View"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
@@ -21,36 +21,36 @@
   </DataSource>
 </dataSources>
 <calculationViews>
-  <calculationView xsi:type="Calculation:JoinView" id="Product_BP" joinType="inner" cardinality="C1_1">
+  <calculationView xsi:type="Calculation:JoinView" id="Product_BP" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="PRODUCTID">
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRODUCTID"/>
       </viewAttribute>
-      <viewAttribute id="TYPECODE">
+      <viewAttribute id="TYPECODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="TYPECODE"/>
       </viewAttribute>
-      <viewAttribute id="ProductCategory">
+      <viewAttribute id="ProductCategory"><descriptions/><descriptions/>
         <descriptions defaultDescription="CATEGORY"/>
       </viewAttribute>
-      <viewAttribute id="CURRENCY">
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CURRENCY"/>
       </viewAttribute>
-      <viewAttribute id="PRICE">
+      <viewAttribute id="PRICE"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRICE"/>
       </viewAttribute>
-      <viewAttribute id="NAMEID">
+      <viewAttribute id="NAMEID"><descriptions/><descriptions/>
         <descriptions defaultDescription="NAMEID"/>
       </viewAttribute>
-      <viewAttribute id="DESCID">
+      <viewAttribute id="DESCID"><descriptions/><descriptions/>
         <descriptions defaultDescription="DESCID"/>
       </viewAttribute>
-      <viewAttribute id="PARTNERID">
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PARTNERID"/>
       </viewAttribute>
-      <viewAttribute id="COMPANYNAME">
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/>
         <descriptions defaultDescription="COMPANYNAME"/>
       </viewAttribute>
-      <viewAttribute id="ADDRESSES_ADDRESSID">
+      <viewAttribute id="ADDRESSES_ADDRESSID"><descriptions/><descriptions/>
         <descriptions defaultDescription="ADDRESSES_ADDRESSID"/>
       </viewAttribute>
       <viewAttribute id="JOIN$SUPPLIER.PARTNERID$PARTNERID" hidden="true"/>
@@ -74,51 +74,51 @@
     </input>
     <joinAttribute name="JOIN$SUPPLIER.PARTNERID$PARTNERID"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="Address" joinType="inner" cardinality="C1_1">
+  <calculationView xsi:type="Calculation:JoinView" id="Address" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="PRODUCTID">
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRODUCTID"/>
       </viewAttribute>
-      <viewAttribute id="TYPECODE">
+      <viewAttribute id="TYPECODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="TYPECODE"/>
       </viewAttribute>
-      <viewAttribute id="ProductCategory">
+      <viewAttribute id="ProductCategory"><descriptions/><descriptions/>
         <descriptions defaultDescription="ProductCategory"/>
       </viewAttribute>
-      <viewAttribute id="CURRENCY">
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CURRENCY"/>
       </viewAttribute>
-      <viewAttribute id="PRICE">
+      <viewAttribute id="PRICE"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRICE"/>
       </viewAttribute>
-      <viewAttribute id="NAMEID">
+      <viewAttribute id="NAMEID"><descriptions/><descriptions/>
         <descriptions defaultDescription="NAMEID"/>
       </viewAttribute>
-      <viewAttribute id="DESCID">
+      <viewAttribute id="DESCID"><descriptions/><descriptions/>
         <descriptions defaultDescription="DESCID"/>
       </viewAttribute>
-      <viewAttribute id="PARTNERID">
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PARTNERID"/>
       </viewAttribute>
-      <viewAttribute id="COMPANYNAME">
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/>
         <descriptions defaultDescription="COMPANYNAME"/>
       </viewAttribute>
-      <viewAttribute id="CITY">
+      <viewAttribute id="CITY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CITY"/>
       </viewAttribute>
-      <viewAttribute id="POSTALCODE">
+      <viewAttribute id="POSTALCODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="POSTALCODE"/>
       </viewAttribute>
-      <viewAttribute id="STREET">
+      <viewAttribute id="STREET"><descriptions/><descriptions/>
         <descriptions defaultDescription="STREET"/>
       </viewAttribute>
-      <viewAttribute id="BUILDING">
+      <viewAttribute id="BUILDING"><descriptions/><descriptions/>
         <descriptions defaultDescription="BUILDING"/>
       </viewAttribute>
-      <viewAttribute id="COUNTRY">
+      <viewAttribute id="COUNTRY"><descriptions/><descriptions/>
         <descriptions defaultDescription="COUNTRY"/>
       </viewAttribute>
-      <viewAttribute id="REGION">
+      <viewAttribute id="REGION"><descriptions/><descriptions/>
         <descriptions defaultDescription="REGION"/>
       </viewAttribute>
       <viewAttribute id="JOIN$ADDRESSES_ADDRESSID$ADDRESSID" hidden="true"/>
@@ -149,49 +149,49 @@
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Product_Name" joinType="textTable" cardinality="C1_1" languageColumn="LANGUAGE">
     <viewAttributes>
-      <viewAttribute id="PRODUCTID">
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRODUCTID"/>
       </viewAttribute>
-      <viewAttribute id="TYPECODE">
+      <viewAttribute id="TYPECODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="TYPECODE"/>
       </viewAttribute>
-      <viewAttribute id="ProductCategory">
+      <viewAttribute id="ProductCategory"><descriptions/><descriptions/>
         <descriptions defaultDescription="ProductCategory"/>
       </viewAttribute>
-      <viewAttribute id="CURRENCY">
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CURRENCY"/>
       </viewAttribute>
-      <viewAttribute id="PRICE">
+      <viewAttribute id="PRICE"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRICE"/>
       </viewAttribute>
-      <viewAttribute id="DESCID">
+      <viewAttribute id="DESCID"><descriptions/><descriptions/>
         <descriptions defaultDescription="DESCID"/>
       </viewAttribute>
-      <viewAttribute id="PARTNERID">
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PARTNERID"/>
       </viewAttribute>
-      <viewAttribute id="COMPANYNAME">
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/>
         <descriptions defaultDescription="COMPANYNAME"/>
       </viewAttribute>
-      <viewAttribute id="CITY">
+      <viewAttribute id="CITY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CITY"/>
       </viewAttribute>
-      <viewAttribute id="POSTALCODE">
+      <viewAttribute id="POSTALCODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="POSTALCODE"/>
       </viewAttribute>
-      <viewAttribute id="STREET">
+      <viewAttribute id="STREET"><descriptions/><descriptions/>
         <descriptions defaultDescription="STREET"/>
       </viewAttribute>
-      <viewAttribute id="BUILDING">
+      <viewAttribute id="BUILDING"><descriptions/><descriptions/>
         <descriptions defaultDescription="BUILDING"/>
       </viewAttribute>
-      <viewAttribute id="COUNTRY">
+      <viewAttribute id="COUNTRY"><descriptions/><descriptions/>
         <descriptions defaultDescription="COUNTRY"/>
       </viewAttribute>
-      <viewAttribute id="REGION">
+      <viewAttribute id="REGION"><descriptions/><descriptions/>
         <descriptions defaultDescription="REGION"/>
       </viewAttribute>
-      <viewAttribute id="ProductName">
+      <viewAttribute id="ProductName"><descriptions/><descriptions/>
         <descriptions defaultDescription="TEXT"/>
       </viewAttribute>
       <viewAttribute id="JOIN$NAMEID$TEXTID" hidden="true"/>
@@ -222,49 +222,49 @@
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Product_Desc" joinType="textTable" cardinality="C1_1" languageColumn="LANGUAGE">
     <viewAttributes>
-      <viewAttribute id="PRODUCTID">
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRODUCTID"/>
       </viewAttribute>
-      <viewAttribute id="TYPECODE">
+      <viewAttribute id="TYPECODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="TYPECODE"/>
       </viewAttribute>
-      <viewAttribute id="ProductCategory">
+      <viewAttribute id="ProductCategory"><descriptions/><descriptions/>
         <descriptions defaultDescription="ProductCategory"/>
       </viewAttribute>
-      <viewAttribute id="CURRENCY">
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CURRENCY"/>
       </viewAttribute>
-      <viewAttribute id="PRICE">
+      <viewAttribute id="PRICE"><descriptions/><descriptions/>
         <descriptions defaultDescription="PRICE"/>
       </viewAttribute>
-      <viewAttribute id="PARTNERID">
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
         <descriptions defaultDescription="PARTNERID"/>
       </viewAttribute>
-      <viewAttribute id="COMPANYNAME">
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/>
         <descriptions defaultDescription="COMPANYNAME"/>
       </viewAttribute>
-      <viewAttribute id="CITY">
+      <viewAttribute id="CITY"><descriptions/><descriptions/>
         <descriptions defaultDescription="CITY"/>
       </viewAttribute>
-      <viewAttribute id="POSTALCODE">
+      <viewAttribute id="POSTALCODE"><descriptions/><descriptions/>
         <descriptions defaultDescription="POSTALCODE"/>
       </viewAttribute>
-      <viewAttribute id="STREET">
+      <viewAttribute id="STREET"><descriptions/><descriptions/>
         <descriptions defaultDescription="STREET"/>
       </viewAttribute>
-      <viewAttribute id="BUILDING">
+      <viewAttribute id="BUILDING"><descriptions/><descriptions/>
         <descriptions defaultDescription="BUILDING"/>
       </viewAttribute>
-      <viewAttribute id="COUNTRY">
+      <viewAttribute id="COUNTRY"><descriptions/><descriptions/>
         <descriptions defaultDescription="COUNTRY"/>
       </viewAttribute>
-      <viewAttribute id="REGION">
+      <viewAttribute id="REGION"><descriptions/><descriptions/>
         <descriptions defaultDescription="REGION"/>
       </viewAttribute>
-      <viewAttribute id="ProductName">
+      <viewAttribute id="ProductName"><descriptions/><descriptions/>
         <descriptions defaultDescription="ProductName"/>
       </viewAttribute>
-      <viewAttribute id="ProductDesc">
+      <viewAttribute id="ProductDesc"><descriptions/><descriptions/>
         <descriptions defaultDescription="TEXT"/>
       </viewAttribute>
       <viewAttribute id="JOIN$DESCID$TEXTID" hidden="true"/>
@@ -369,20 +369,52 @@
     </shape>
   
     <shape expanded="true" modelObjectName="Product_BP" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="77" y="642"/>
+      <upperLeftCorner x="100" y="636"/>
       <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="dev602.data::MD.Products" modelObjectNameSpace="Product_BP" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="34"/>
+      <rectangleSize width="268"/>
+    </shape>
+    <shape modelObjectName="dev602.data::MD.BusinessPartner" modelObjectNameSpace="Product_BP" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="34"/>
+      <rectangleSize width="268"/>
     </shape>
     <shape expanded="true" modelObjectName="Address" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="87" y="541"/>
+      <upperLeftCorner x="100" y="536"/>
       <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Product_BP" modelObjectNameSpace="Address" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="dev602.data::MD.Addresses" modelObjectNameSpace="Address" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="Product_Name" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="87" y="458"/>
+      <upperLeftCorner x="100" y="432"/>
       <rectangleSize height="30" width="140"/>
     </shape>
+    <shape modelObjectName="Address" modelObjectNameSpace="Product_Name" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="dev602.data::Util.Texts" modelObjectNameSpace="Product_Name" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
     <shape expanded="true" modelObjectName="Product_Desc" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="87" y="364"/>
+      <upperLeftCorner x="100" y="326"/>
       <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Product_Name" modelObjectNameSpace="Product_Desc" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="dev602.data::Util.Texts" modelObjectNameSpace="Product_Desc" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
     </shape>
   </shapes>
 </layout>

@@ -1,4 +1,7 @@
-var os = $.require('os');
+/*eslint no-console: 0, no-unused-vars: 0*/
+"use strict";
+
+var os = $.require("os");
 var output = {};
 
 output.tmpdir = os.tmpdir();

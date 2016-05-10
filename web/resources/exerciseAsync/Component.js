@@ -11,7 +11,7 @@ sap.ui.core.UIComponent.extend("sap.xs.Exercise3.Component", {
         	chat: "",
         	message: ""
       	});
-      	sap.ui.getCore().setModel(oModel,'chatModel');
+      	sap.ui.getCore().setModel(oModel,"chatModel");
          
 		sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
 	},

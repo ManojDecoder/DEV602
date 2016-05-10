@@ -1,3 +1,4 @@
+"use strict";
 var hana = require("./database");
 module.exports = {
    dbCall: function(wss){

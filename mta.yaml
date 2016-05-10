@@ -1,47 +1,47 @@
 _schema-version: 2.0.0
 ID: dev602
-description: DEV602 Group 01 First XS Advanced Application
-version: 0.0.1
+description: DEV602 Workshop Example Implementation
+version: 1.12.103
 
 modules:
-  - name: web
-    type: html5
-    path: web
-    requires:
-      - name: dev602_01-uaa
-      - name: nodejs
-        group: destinations
-        properties:
-          name: nodejs
-          url: ~{url}
-          forwardAuthToken: true
+- name: web
+  type: html5
+  path: web
+  requires: 
+    - name: dev602-uaa
+    - name: nodejs
+      group: destinations
+      properties:
+        name: nodejs
+        url: ~{url}
+        forwardAuthToken: true
 
-  - name: js
-    type: nodejs
-    path: js
-    provides: 
-      - name: nodejs
-        properties:
-          url: "${default-url}"
-    requires:
-      - name: dev602_01-uaa
-      - name: db
-      - name: hdi-container
+- name: db
+  type: hdb
+  path: db
+  requires:
+   - name: hdi-container
+     properties: 
+       TARGET_CONTAINER: ~{hdi-service-name}
 
-  - name: db
-    type: hdb
-    path: db
-    requires:
-      - name: hdi-container
-
-
-  
+- name: js
+  type: nodejs
+  path: js
+  provides:
+    - name: nodejs
+      properties:
+        url: "${default-url}"
+  requires:
+    - name: dev602-uaa
+    - name: db
+    - name: hdi-container
 
 resources:
-  - name: hdi-container
-    type: com.sap.xs.hdi-container
-
-  - name: dev602_01-uaa
+  - name: dev602-uaa
     type: com.sap.xs.uaa
     parameters:
       config_path: ./xs-security.json
+  - name: hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-service-name: ${service-name}

@@ -21,17 +21,7 @@
 				"name": "dev602.data::PurchaseOrder.ItemView",
 				"type": "VIEW",
 				"privileges": [ "SELECT" ]
-			},
-			{
-				"name": "dev602.models::PRODUCTS",
-				"type": "VIEW",
-				"privileges": [ "SELECT" ]
-			},
-			{
-				"name": "dev602.models::PURCHASE_ORDERS",
-				"type": "VIEW",
-				"privileges": [ "SELECT" ]
-			}
+			}		
 		],
 		"schema_analytic_privileges": [
             {

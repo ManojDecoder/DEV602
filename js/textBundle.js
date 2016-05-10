@@ -1,8 +1,9 @@
+/*eslint no-console: 0, no-unused-vars: 0, consistent-return: 0*/
 "use strict";
 var express = require("express");
 var app = express(); 
 var os = require("os");
-var TextBundle = require("sap-textbundle");
+var TextBundle = require("sap-textbundle").TextBundle;
 var langparser = require("accept-language-parser");
 
 function getLocale(req) {
@@ -25,7 +26,7 @@ module.exports = function(){
 
    app.route("/")
 	.get(function(req,res){
-		var bundle = new TextBundle({ path: "./i18n/messages", locale: getLocale(req) } );
+		var bundle = new TextBundle("./i18n/messages", getLocale(req));
  		res.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});	
 		var greeting = bundle.getText("greeting", [os.hostname(), os.type()]);
   		res.end(greeting, "utf-8");

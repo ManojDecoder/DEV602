@@ -1,8 +1,8 @@
 {
-	"dev602.data::DUMMY" : {
-		"target" : {
-			"schema" : "SYS",
-			"object" : "DUMMY"
-		}
-	}	
+  "dev602.data::DUMMY": {
+    "target": {
+      "object": "DUMMY",
+      "schema": "SYS"
+    }
+  }
 }

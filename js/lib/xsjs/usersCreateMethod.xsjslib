@@ -1,3 +1,6 @@
+/*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0*/
+"use strict";
+
 $.import("xsjs", "session");
 var SESSIONINFO = $.xsjs.session;
 
@@ -10,21 +13,21 @@ function usersCreate(param){
 	var after = param.afterTableName;    
 	
 	//Get Input New Record Values
-	var	pStmt = param.connection.prepareStatement('select * from "' + after + '"');	 
-	var User = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), 'Details');
+	var	pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");	 
+	var User = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "Details");
 	pStmt.close();
 
 
 	//Validate Email
 	if(!validateEmail(User.Details[0].E_MAIL)){
-		throw 'Invalid email for '  + User.Details[0].FIRSTNAME +  
-        ' No Way! E-Mail must be valid and ' + User.Details[0].E_MAIL + ' has problems';
+		throw "Invalid email for "  + User.Details[0].FIRSTNAME +  
+        " No Way! E-Mail must be valid and " + User.Details[0].E_MAIL + " has problems";
 	} 
 
 	//Get Next Personnel Number
-	pStmt = param.connection.prepareStatement('select "dev602.data::purchaseOrderSeqId".NEXTVAL from dummy'); 
+	pStmt = param.connection.prepareStatement("select \"dev602.data::purchaseOrderSeqId\".NEXTVAL from dummy"); 
 	var rs = pStmt.executeQuery();
-	var PersNo = '';
+	var PersNo = "";
 	while (rs.next()) {
 		PersNo = rs.getString(1);
 	}
@@ -33,12 +36,12 @@ function usersCreate(param){
 	for( var i = 0; i<2; i++){
 		var pStmt;
 		if(i<1){
-			pStmt = param.connection.prepareStatement('insert into "dev602.data::User.Details" values(?,?,?,?)' );			
+			pStmt = param.connection.prepareStatement("insert into \"dev602.data::User.Details\" values(?,?,?,?)" );			
 		}else{
-			pStmt = param.connection.prepareStatement('TRUNCATE TABLE "' + after + '" ' );
+			pStmt = param.connection.prepareStatement("TRUNCATE TABLE \"" + after + "\"" );
 			pStmt.executeUpdate();
 			pStmt.close();
-			pStmt = param.connection.prepareStatement('insert into "' + after + '" values(?,?,?,?)' );		
+			pStmt = param.connection.prepareStatement("insert into \"" + after + "\" values(?,?,?,?)" );		
 		}
 		pStmt.setString(1, PersNo);
 		pStmt.setString(2, User.Details[0].FIRSTNAME);		pStmt.setString(3, User.Details[0].LASTNAME);	

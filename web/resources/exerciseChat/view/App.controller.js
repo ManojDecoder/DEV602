@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: 0, no-undef: 0, no-sequences: 0, no-unused-expressions: 0*/
 //To use a javascript controller its name must end with .controller.js
 sap.ui.controller("sap.xs.chat.view.App", {
 

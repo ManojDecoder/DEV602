@@ -1,4 +1,9 @@
+/*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0*/
+"use strict";
 
+/**
+@function JSON as returned by hdb 
+*/
 function hdbDirectTest(){
   var results = _selection();
 //Pass output to response		
@@ -8,20 +13,23 @@ $.response.setBody(JSON.stringify(results));
 
 }
 
+/**
+@function Flattended JSON structure
+*/
 function hdbFlattenedTest(){
-	outputJSON(_selection().EX_BP_ADDRESSES);
+	outputJSON(_selection().EX_TOP_3_EMP_PO_COMBINED_CNT);
 }
 
+/**
+@function load/call the procedure
+*/
 function _selection(){
 	var connection = $.hdb.getConnection();
 
-	var partnerRole = $.request.parameters.get("PartnerRole");
-	partnerRole = typeof partnerRole !== 'undefined' ? partnerRole : '1';
+	var getPOHeaderData = connection.loadProcedure( 
+		"dev602.procedures::get_po_header_data");
 
-	var getBpAddressesByRole = connection.loadProcedure( 
-		"dev602.procedures::get_bp_addresses_by_role");
-
-	var results = getBpAddressesByRole(partnerRole);
+	var results = getPOHeaderData();
 	return results;
 }
 
@@ -40,7 +48,7 @@ function outputJSON(jsonOut){
 }
 
 
-var aCmd = $.request.parameters.get('cmd');
+var aCmd = $.request.parameters.get("cmd");
 switch (aCmd) {
 case "direct":
 	hdbDirectTest();

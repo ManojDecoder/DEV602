@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: 0*/
 sap.ui.jsview("sap.shineNext.odataBasic.view.App", { 
 
         getControllerName: function() {
@@ -16,9 +17,8 @@ sap.ui.jsview("sap.shineNext.odataBasic.view.App", {
 			
 			//To-Do: Connect model to table and bind and sort
 			var sort1 = new sap.ui.model.Sorter("PARTNERID");
-            var columnList = new sap.m.ColumnListItem();
             oTable.bindItems({
-				path: "bpModel>/BusinessPartners",
+                path: "bpModel>/BusinessPartners",
                 template: columnList,
                 sorter: sort1
 			});
@@ -27,7 +27,7 @@ sap.ui.jsview("sap.shineNext.odataBasic.view.App", {
             //Table Column Definitions 
 			var oMeta = sap.ui.getCore().getModel("bpModel").getServiceMetadata();
             for ( var i = 0; i < oMeta.dataServices.schema[0].entityType[0].property.length; i++) {
-				var property = oMeta.dataServices.schema[0].entityType[0].property[i];
+			var property = oMeta.dataServices.schema[0].entityType[0].property[i];
                 oTable.addColumn(new sap.m.Column({
                     header: new sap.m.Label({
                         text: property.name
@@ -40,10 +40,10 @@ sap.ui.jsview("sap.shineNext.odataBasic.view.App", {
                     },
                     name: property.name
                 }));
-			}
-  
+}
 
-        var displayPanel = new sap.m.Panel("dispPanel").setHeaderText('Business Partner Details');
+
+        var displayPanel = new sap.m.Panel("dispPanel").setHeaderText("Business Partner Details");
         displayPanel.setExpandable(true);
         displayPanel.setExpanded(true);
 
@@ -51,4 +51,5 @@ sap.ui.jsview("sap.shineNext.odataBasic.view.App", {
        return displayPanel;
     }
 });
+ 
  

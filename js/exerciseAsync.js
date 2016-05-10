@@ -1,3 +1,4 @@
+/*eslint no-console: 0, no-unused-vars: 0*/
 "use strict";
 var express = require("express");
 var app = express(); 
@@ -30,8 +31,8 @@ module.exports = function(server){
 	wss.on("connection", function (ws) {
     	console.log("Connected");	
 		
-		ws.on('message', function (message) {
-        	console.log('received: %s', message);
+		ws.on("message", function (message) {
+        	console.log("received: %s", message);
         	var data = JSON.parse(message);
         	switch(data.action){
         		case "async":
@@ -53,7 +54,7 @@ module.exports = function(server){
         	    	dbAsync2.dbCall(wss);
         	    	break;         	           	        	          	    
         		default:
-					wss.broadcast('Error: Undefined Action: '+ data.action);
+					wss.broadcast("Error: Undefined Action: "+ data.action);
 					break;
         }
     });    	

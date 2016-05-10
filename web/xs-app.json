@@ -1,14 +1,15 @@
 {
 	"welcomeFile": "index.html",
 	"authenticationMethod": "route",
-	"routes": [
- 	{
+	"websockets": {
+		"enabled": true
+	},
+	"routes": [{
 		"source": "/node/(.*)",
 		"destination": "nodejs",
 		"csrfProtection": false,
 		"authenticationType": "xsuaa"
-	}, 	
-	{
+	}, {
 		"source": "(.*)(.xsjs)",
 		"destination": "nodejs",
 		"csrfProtection": false,
@@ -18,4 +19,5 @@
 		"destination": "nodejs",
 		"authenticationType": "xsuaa"
 	}]
+
 }

@@ -1,10 +1,12 @@
-'use strict';
+/*eslint no-console: 0, no-unused-vars: 0, no-undef: 0, no-shadow: 0*/
+"use strict";
 var hdb = require("sap-hdbext");	
 var async = require("async");
+var pool = hdb.createPool();
 
 module.exports = {
 	callHANA: function(wss){
-        hdb.createConnection(function(error, client) {
+        pool.acquire(function(error, client){
             if(error) {
                 console.error(error);
             }
@@ -17,7 +19,7 @@ module.exports = {
                     for(var i = 0; i < res.length; i++){
                 	   wss.broadcast(res[i].PURCHASEORDERID + ": " + res[i].GROSSAMOUNT + "\n");
                     }
-        		    client.disconnect(function(cb){wss.broadcast("Database Disconnected"); } );
+        		    client.disconnect(function(cb){wss.broadcast("Database Disconnected"); pool.release(client); } );
                 });
             }  //End if client
         });  //end create connection      
@@ -27,8 +29,8 @@ module.exports = {
 
 
    callHANA1: function(cb, wss){
-
-    hdb.createConnection(function(error, client) {
+    //hdb.createConnection(hanaService, function(error, client) {
+    pool.acquire(function(error, client){
     if(error) {
         console.error(error);
     }
@@ -57,12 +59,14 @@ module.exports = {
         function disconnectDone(callback){
 			wss.broadcast("Database Disconnected #1"); 
 			wss.broadcast("End Waterfall #1");
+			pool.release(client);
             cb();
         }
 
  	], function (err, result) {
         wss.broadcast(err || "done");
         wss.broadcast("Error Occured disrupting flow of Waterfall for #1");
+        pool.release(client);
         cb();
     });  //end Waterfall
 
@@ -73,7 +77,8 @@ module.exports = {
 
    callHANA2: function(cb, wss){
 
-    hdb.createConnection(function(error, client) {
+    //hdb.createConnection(hanaService, function(error, client) {
+    pool.acquire(function(error, client){
     if(error) {
         console.error(error);
     }
@@ -102,12 +107,14 @@ module.exports = {
         function disconnectDone(callback){
 			wss.broadcast("Database Disconnected #2"); 
 			wss.broadcast("End Waterfall #2");
+			pool.release(client);
             cb();
         }
 
  	], function (err, result) {
         wss.broadcast(err || "done");
         wss.broadcast("Error Occured disrupting flow of Waterfall for #2");
+        pool.release(client);
         cb();
     });     //end Waterfall
    }        //end if client
