@@ -21,7 +21,7 @@
  		}, this.onErrorCall);
  	},
 
- 	callUserUdpate: function() {
+ 	callUserUpdate: function() {
  		var oModel = sap.ui.getCore().getModel("userModel");
  		oModel.submitChanges(
  			function() {

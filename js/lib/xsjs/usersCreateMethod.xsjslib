@@ -43,9 +43,9 @@ function usersCreate(param){
 			pStmt.close();
 			pStmt = param.connection.prepareStatement("insert into \"" + after + "\" values(?,?,?,?)" );		
 		}
-		pStmt.setString(1, PersNo);
-		pStmt.setString(2, User.Details[0].FIRSTNAME);		pStmt.setString(3, User.Details[0].LASTNAME);	
-		pStmt.setString(4, User.Details[0].E_MAIL);	
+		pStmt.setString(1, PersNo.toString());
+		pStmt.setString(2, User.Details[0].FIRSTNAME.toString());		pStmt.setString(3, User.Details[0].LASTNAME.toString());	
+		pStmt.setString(4, User.Details[0].E_MAIL.toString());	
 		pStmt.executeUpdate();
 		pStmt.close();
 	}
