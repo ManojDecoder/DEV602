@@ -1,7 +1,7 @@
 _schema-version: 2.0.0
 ID: dev602
 description: DEV602 Workshop Example Implementation
-version: 1.12.105
+version: 1.12.106
 
 modules:
 - name: web
