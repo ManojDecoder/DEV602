@@ -14,6 +14,6 @@
 		<Button press="callMultiService" text="Execute Service"/>
 		<Button press="callExcel" text="Download Excel"/>
 	</Panel>
-	<core:Fragment fragmentName="odataView.MTableHead" type="JS"/>
-	<core:Fragment fragmentName="odataView.MTableItem" type="JS"/>
+	<core:Fragment fragmentName="odataView.MTableHead" type="XML"/>
+	<core:Fragment fragmentName="odataView.MTableItem" type="XML"/>
 </core:FragmentDefinition>

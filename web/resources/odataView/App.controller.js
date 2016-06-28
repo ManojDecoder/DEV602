@@ -10,8 +10,8 @@ sap.ui.controller("odataView.App", {
 		sap.ui.getCore().getModel().setProperty("/mEntity2", "/POItem");
 	},
 	callMultiService: function() {
-		var oTable = sap.ui.getCore().byId("tblPOHeader");
-		var oTableItem = sap.ui.getCore().byId("tblPOItem");
+		var oTable = sap.ui.getCore().byId("App").byId("tblPOHeader");
+		var oTableItem = sap.ui.getCore().byId("App").byId("tblPOItem");
 		oTable.removeAllColumns();
 		oTable.removeAllItems();
 		oTableItem.removeAllColumns();
